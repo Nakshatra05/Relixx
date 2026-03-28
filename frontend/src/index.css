@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Dark mode default (matches original frontend screenshot) */
+  :root {
+    --background: 220 14% 7%;
+    --foreground: 40 24% 97%;
+
+    --card: 220 12% 11%;
+    --card-foreground: 40 22% 96%;
+
+    --popover: 220 12% 11%;
+    --popover-foreground: 40 22% 96%;
+
+    /* Monad Purple — brand #836EF9 */
+    --primary: 252 92% 70%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 10% 16%;
+    --secondary-foreground: 40 14% 86%;
+
+    --muted: 220 10% 15%;
+    --muted-foreground: 220 10% 72%;
+
+    --accent: 252 92% 70%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 40 20% 95%;
+
+    --success: 142 76% 45%;
+    --success-foreground: 144 3% 98%;
+
+    --border: 220 10% 24%;
+    --input: 220 10% 18%;
+    --ring: 252 92% 70%;
+
+    --radius: 1rem;
+
+    --glass: 220 12% 12%;
+    --glass-border: 220 10% 24%;
+    --glow-primary: 252 92% 70%;
+
+    --sidebar-background: 220 12% 10%;
+    --sidebar-foreground: 40 12% 84%;
+    --sidebar-primary: 252 92% 70%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 10% 16%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 220 10% 24%;
+    --sidebar-ring: 252 92% 70%;
+  }
+
+  /* Light mode palette for theme toggle */
+  .light {
+    --background: 40 20% 98%;
+    --foreground: 220 14% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 14% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 14% 8%;
+
+    --primary: 252 72% 54%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 12% 94%;
+    --secondary-foreground: 220 10% 25%;
+
+    --muted: 220 10% 95%;
+    --muted-foreground: 220 8% 45%;
+
+    --accent: 252 72% 54%;
+    --accent-foreground: 0 0% 100%;
+
+    --border: 220 12% 86%;
+    --input: 220 12% 90%;
+    --ring: 252 72% 54%;
+
+    --success: 142 70% 38%;
+    --success-foreground: 210 20% 10%;
+
+    --glass: 0 0% 100%;
+    --glass-border: 220 12% 84%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 10% 35%;
+    --sidebar-primary: 252 72% 54%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 12% 94%;
+    --sidebar-accent-foreground: 220 14% 8%;
+    --sidebar-border: 220 12% 86%;
+    --sidebar-ring: 252 72% 54%;
+  }
+}
+
+@layer base {
+  html {
+    font-size: 17px;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card/60 backdrop-blur-xl border border-glass-border;
+  }
+
+  .glass-strong {
+    @apply bg-card/80 backdrop-blur-2xl border border-glass-border;
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 60px -12px hsl(var(--primary) / 0.35);
+  }
+
+  .glow-success {
+    box-shadow: 0 0 60px -12px hsl(var(--success) / 0.3);
+  }
+
+  .glow-primary-sm {
+    box-shadow: 0 0 30px -8px hsl(var(--primary) / 0.25);
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/80;
+  }
+
+  .text-gradient-brand {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-violet-300;
+  }
+
+  .shadow-premium {
+    box-shadow: 0 8px 32px -8px rgba(0,0,0,0.5), 0 2px 8px -2px rgba(0,0,0,0.3);
+  }
+
+  .shadow-card {
+    box-shadow: 0 4px 24px -4px rgba(0,0,0,0.3), 0 1px 4px -1px rgba(0,0,0,0.2);
+  }
+
+  .tracking-label {
+    @apply text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground;
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "relix",
+  "private": true,
+  "description": "Foundry contracts + Vite frontend for Universal Claim Links on Monad",
+  "scripts": {
+    "compile": "forge build && node scripts/sync-universal-claim-abi.mjs",
+    "compile:clean": "forge clean && forge build && node scripts/sync-universal-claim-abi.mjs",
+    "sync:abi": "forge build && node scripts/sync-universal-claim-abi.mjs",
+    "test": "forge test",
+    "test:vv": "forge test -vv",
+    "test:gas": "forge test --gas-report",
+    "snapshot": "forge snapshot",
+    "deploy": "forge script script/DeployUniversalClaimLinks.s.sol:DeployUniversalClaimLinks --broadcast -vvvv",
+    "deploy:env": "bash scripts/deploy-env.sh",
+    "deploy:anvil": "forge script script/DeployUniversalClaimLinks.s.sol:DeployUniversalClaimLinks --rpc-url http://127.0.0.1:8545 --broadcast -vvvv",
+    "deploy:dry": "forge script script/DeployUniversalClaimLinks.s.sol:DeployUniversalClaimLinks -vvvv",
+    "doctor": "bash scripts/doctor.sh"
+  }
+}
